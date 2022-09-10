@@ -1,0 +1,474 @@
+#include<iostream>
+#include<fstream>
+#include<cstdlib>
+#include<conio.h>
+#include<time.h>
+#include<iomanip>
+
+using namespace std;
+
+class patient{
+public:
+       char name[20];
+       char address[100];
+       char contact[10];
+       char age[5];
+       char sex[8];
+       char blood_gp[5];
+       char disease_past[50];
+       char id[15];
+       int ward_no;
+       int token_no;
+};
+
+class Doctors{
+    public://char fname[30];
+       char dname[20];
+       char d_address[100];
+       char d_contact[10];
+       char d_age[5];
+       char d_sex[8];
+       char d_qualification[8];
+       char d_department[20];
+
+
+};
+class nurse{
+   public: char fname[30];
+       char nname[20];
+       char naddress[100];
+       char ncontact[10];
+       char nage[5];
+       char nsex[8];
+       char nqualification[8];
+       char ndepartment[20];
+    char alloted_ward[30];
+
+
+};
+class pharmacy{
+public:char fpname[10];
+       char pname[20];
+        char paddress[100];
+       char pcontact[10];
+       char page[5];
+       char psex[8];
+       char pqualification[8];
+
+};
+class lab{
+
+public:char flname[10];
+       char lname[20];
+        char laddress[100];
+       char lcontact[10];
+       char lage[5];
+       char lsex[8];
+       char lqualification[8];   char symptom[500];
+                                char diagnosis[500];
+                                char medicine[500];
+                                char addmission[30];
+                                char ward[15];
+
+
+};
+char fname[30];
+int main(){
+
+    b:
+cout<<"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+cout<<"\t\t\t\t\t@@ _______________________________________________________________________________________ @@\n";
+cout<<"\t\t\t\t\t@@|                                                                                 |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                 |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                 |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                 |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                 |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                 |@@\n";
+cout<<"\t\t\t\t\t@@|                                  WELCOME TO                                           |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|                           HOSPITAL MANAGEMENT SYSTEM                                  |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|                                                                                       |@@\n";
+cout<<"\t\t\t\t\t@@|_______________________________________________________________________________________|@@\n";
+cout<<"\t\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n\n\n\t\t\t\t\t";
+system("pause");
+system("cls");
+
+
+
+    int choice;
+cout<<"enter choice 1.patients2.doctors.3.nurse 4.pharmacy 5.lab"<<endl;
+
+cin>>choice;
+
+switch(choice) {
+    case 1 :{
+       cout << "patient"; patient ak;int i;
+       //cout<<"\n1.add biodata\n2.diagnosis information\n3.view the patient file\n4.exit\n";
+       a:cout<<"\n1.add biodata\n2.diagnosis information\n3.view the patient file\n4.exit\n\t\t\t\t\tEnter your choice: ";cin>>i;
+       if(i>4||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto a;} //if inputed choice is other than given choice
+
+
+
+system("cls");
+
+   if(i==1){     ofstream pat_file;
+        //char fname[20];
+        cout<<"\n\n\n\nEnter the patient's file name : ";
+        cin.ignore();
+        gets(fname);
+        pat_file.open(fname);
+  if(!fname)
+{
+cout<<"\nError while opening the file\n";goto b;
+}
+else
+            {
+
+            cout<<"\n********************************************************************\n";pat_file<<"\n********************************************************************\n\n";//fn1353 st
+            cout<<"\nName : ";pat_file<<"Name : ";gets(ak.name);pat_file<<ak.name<<"\n";
+            cout<<"\nAddress : ";pat_file<<"Address : ";gets(ak.address);pat_file<<ak.address<<"\n";
+            cout<<"\nContact Number : ";pat_file<<"Contact Number : ";gets(ak.contact);pat_file<<ak.contact<<"\n";
+            cout<<"\nAge : ";pat_file<<"Age : ";gets(ak.age);pat_file<<ak.age<<"\n";
+            cout<<"\nSex : ";pat_file<<"Sex : ";gets(ak.sex);pat_file<<ak.sex<<"\n";
+            cout<<"\nBlood Group : ";pat_file<<"Blood Group : ";gets(ak.blood_gp);pat_file<<ak.blood_gp<<"\n";
+           // cout<<"\nWard no. : ";pat_file<<"\nWard no. : ";cin>>ak.ward_no;pat_file<<ak.ward_no<<"\n";
+            cout<<"\nAny Major disease suffered earlier : ";pat_file<<"Any Major disease suffered earlier : ";gets(ak.disease_past);pat_file<<ak.disease_past<<"\n";
+            cout<<"\nPatient ID : ";pat_file<<"Patient ID : ";gets(ak.id);pat_file<<ak.id<<"\n";
+            {
+                int x;
+               c:cout<<"\1.indoor patient\n2.outdoor patient\n\n\t\t\t\t\tEnter your choice: ";cin>>x;
+       if(x>2||x<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto c;}
+                if(x==1){
+                 cout<<"\nWard no. : ";pat_file<<"\nWard no. : ";cin>>ak.ward_no;pat_file<<ak.ward_no<<"\n";
+                 cout<<"\n********************************************************************\n";pat_file<<"\n********************************************************************\n\n";
+            cout<<"\nInformation Saved Successfully\n";}
+                if(x==2){
+                    cout<<"\nToken no. : ";pat_file<<"\nToken no. : ";cin>>ak.token_no;pat_file<<ak.token_no<<"\n";
+                    cout<<"\n********************************************************************\n";pat_file<<"\n********************************************************************\n\n";
+            cout<<"\nInformation Saved Successfully\n";
+            }
+
+            }
+            system("pause");
+  system("cls");
+  goto a;
+           } }//first if
+            if(i==2){
+
+                    fstream pat_file;
+                cout<<"\n\nEnter the patient's file name to be opened : ";
+                cin.ignore();
+                gets(fname);
+                system("cls");
+                pat_file.open(fname, ios::in);
+                if(!pat_file)
+                {
+                cout<<"\nError while opening the file\n";goto b;
+                }
+                else
+                {
+                cout<<"\n\n\n\n\t\t\t\t........................................ Information about "<<fname<<" ........................................\n\n\n\n";
+                string info;
+                while(pat_file.good())
+                {
+                getline(pat_file,info);
+                cout<<info<<"\n";
+                    }
+cout<<"\n";
+pat_file.close();
+pat_file.open(fname, ios::out | ios::app);
+            cout<<"\n";
+//cout<<"Adding more information in patient's file................on : "<<asctime (timeinfo);pat_file<<"Description of "<<asctime (timeinfo)<<"\n";
+                            class app
+                            {
+                                public:char symptom[500];
+                                char diagnosis[500];
+                                char medicine[500];
+                                char addmission[30];
+
+                            };
+            app add;
+            cout<<"\nSymptoms : "; pat_file<<"Symptoms : ";gets(add.symptom); pat_file<<add.symptom<<"\n";
+            cout<<"\nDiagnosis : "; pat_file<<"Diagnosis : ";gets(add.diagnosis); pat_file<<add.diagnosis<<"\n";
+            cout<<"\nMedicines : "; pat_file<<"Medicines : ";gets(add.medicine); pat_file<<add.medicine<<"\n";
+            cout<<"\nAddmission Required? : "; pat_file<<"Addmission Required? : ";gets(add.addmission); pat_file<<add.addmission<<"\n";
+            pat_file<<"\n*************************************************************************\n";
+
+pat_file.close();
+cout<<"\n\n";
+
+system("pause");
+            system("cls");
+goto a;
+
+}
+            }//second if
+
+          if(i==3){fstream pat_file;
+    cout<<"\n\nEnter the patient's file name to be opened : ";
+    cin.ignore();
+    gets(fname);
+    system("cls");
+pat_file.open(fname, ios::in);
+if(!pat_file)
+{
+cout<<"\nError while opening the file\n";goto b;
+}
+else
+{
+   cout<<"\n\n\n\n\t\t\t\t........................................ Full Medical History of "<<fname<<" ........................................\n\n\n\n";
+   string info;
+while(pat_file.good())
+{
+getline(pat_file,info);
+cout<<info<<"\n";
+}
+cout<<"\n";
+        }
+        system("pause");
+        system("cls");
+        goto a;}
+       if(i==4)goto b;
+
+        break;}
+
+    case 2 :{{
+        cout << "doctor";char fdname[20];int i;
+         f:cout<<"\n1.add biodata\n2.view the doctor's file\n3.exit\n\t\t\t\t\tEnter your choice: ";cin>>i;
+       if(i>3||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto f;} //if inputed choice is other than given choice
+
+
+
+system("cls");
+if(i==1){
+       ofstream d_file;
+
+
+        cout<<"\n\n\n\nEnter the Doctors's file name : ";
+        cin.ignore();
+        gets(fdname);
+        d_file.open(fdname);
+  if(!fdname)
+{
+cout<<"\nError while opening the file\n";goto b;
+}
+else
+            {
+
+            cout<<"\n********************************************************************\n";
+            d_file<<"\n********************************************************************\n\n";//fn1353 st
+
+       Doctors dd;
+            cout<<"\nName : ";d_file<<"Name : ";gets(dd.dname);d_file<<dd.dname<<"\n";
+            cout<<"\nAddress : ";d_file<<"Address : ";gets(dd.d_address);d_file<<dd.d_address<<"\n";
+            cout<<"\nContact Number : ";d_file<<"Contact Number : ";gets(dd.d_contact);d_file<<dd.d_contact<<"\n";
+            cout<<"\nAge : ";d_file<<"Age : ";gets(dd.d_age);d_file<<dd.d_age<<"\n";
+            cout<<"\nSex : ";d_file<<"Sex : ";gets(dd.d_sex);d_file<<dd.d_sex<<"\n";
+            cout<<"\nQualification : ";d_file<<"Qualification : ";gets(dd.d_qualification);d_file<<dd.d_qualification<<"\n";
+
+            cout<<"department : ";d_file<<"Department: ";
+            gets(dd.d_department);d_file<<dd.d_department<<"\n";
+
+
+            cout<<"\n********************************************************************\n";
+            d_file<<"\n********************************************************************\n\n";
+            cout<<"\nInformation Saved Successfully\n";
+            }
+  system("pause");
+  system("cls");
+ goto f;}
+ if(i==2)
+ {
+                        fstream d_file;
+                        cout<<"\n\nEnter the doctor's file name to be opened : ";
+    cin.ignore();
+    gets(fdname);
+    system("cls");
+d_file.open(fdname, ios::in);
+if(!d_file)
+{
+cout<<"\nError while opening the file\n";goto f;
+}
+else
+{
+   cout<<"\n\n\n\n\t\t\t\t........................................ Full details of "<<fdname<<" ........................................\n\n\n\n";
+   string info;
+while(d_file.good())
+{
+getline(d_file,info);
+cout<<info<<"\n";
+}
+cout<<"\n";
+        }
+        system("pause");
+        system("cls");
+        goto f;}
+
+       if(i==3)goto b;
+
+ }
+        break;
+    }
+   case 3 :{
+        cout << "nurse";char fnname[20];int i;
+         n:cout<<"\n1.add biodata\n2.view the nursing staff's file\n3.exit\n\t\t\t\t\tEnter your choice: ";cin>>i;
+       if(i>3||i<1){cout<<"\n\n\t\t\t\t\t\tInvalid Choice\n";cout<<"\t\t\t\t\t\tTry again...........\n\n";goto n;} //if inputed choice is other than given choice
+
+
+
+system("cls");
+if(i==1){
+        ofstream n_file;
+
+
+        cout<<"\n\n\n\nEnter the nursing staff's file name : ";
+        cin.ignore();
+        gets(fnname);
+        n_file.open(fnname);
+  if(!fnname)
+{
+cout<<"\nError while opening the file\n";goto b;
+}
+else
+            {cout<<"\n********************************************************************\n";
+            n_file<<"\n********************************************************************\n\n";//fn1353 st
+
+       nurse nn;
+            cout<<"\nName : ";n_file<<"Name : ";gets(nn.nname);n_file<<nn.nname<<"\n";
+            cout<<"\nAddress : ";n_file<<"Address : ";gets(nn.naddress);n_file<<nn.naddress<<"\n";
+            cout<<"\nContact Number : ";n_file<<"Contact Number : ";gets(nn.ncontact);n_file<<nn.ncontact<<"\n";
+            cout<<"\nAge : ";n_file<<"Age : ";gets(nn.nage);n_file<<nn.nage<<"\n";
+            cout<<"\nSex : ";n_file<<"Sex : ";gets(nn.nsex);n_file<<nn.nsex<<"\n";
+            cout<<"\nQualification : ";n_file<<"Qualification : ";gets(nn.nqualification);n_file<<nn.nqualification<<"\n";
+
+            cout<<"department : ";n_file<<"Department: ";
+            gets(nn.ndepartment);n_file<<nn.ndepartment<<"\n";
+            cout<<"Alloted ward : ";n_file<<"Alloted ward: ";
+            gets(nn.alloted_ward);n_file<<nn.alloted_ward<<"\n";
+
+
+            cout<<"\n********************************************************************\n";
+            n_file<<"\n********************************************************************\n\n";
+            cout<<"\nInformation Saved Successfully\n";
+
+            cout<<"\n********************************************************************\n";
+            n_file<<"\n********************************************************************\n\n";//fn1353 st
+
+             cout<<"\nInformation Saved Successfully\n";
+            }
+            system("pause");
+            system("cls");
+         goto n;
+}
+if(i==2){
+                        fstream n_file;
+                        cout<<"\n\nEnter the nurse staff's file name to be opened : ";
+    cin.ignore();
+    gets(fnname);
+    system("cls");
+n_file.open(fnname, ios::in);
+if(!n_file)
+{
+cout<<"\nError while opening the file\n";goto f;
+}
+else
+{
+   cout<<"\n\n\n\n\t\t\t\t........................................ Full details of "<<fnname<<" ........................................\n\n\n\n";
+   string info;
+while(n_file.good())
+{
+getline(n_file,info);
+cout<<info<<"\n";
+}
+cout<<"\n";
+        }
+        system("pause");
+        system("cls");
+        goto n;}
+
+       if(i==3)goto b;
+
+
+        break;}
+    case 4 :{{
+        cout << "pharmacy";
+        ofstream p_file;        char fpname[20];
+        cout<<"\n\n\n\nEnter the staff's file name : ";        cin.ignore();        gets(fpname);        p_file.open(fpname);
+  if(!fpname)
+{ cout<<"\nError while opening the file\n";goto b; }
+else
+            {
+            cout<<"\n********************************************************************\n";
+            p_file<<"\n********************************************************************\n\n";//fn1353 st
+
+       pharmacy p;
+            cout<<"\nName : ";p_file<<"Name : ";gets(p.pname);p_file<<p.pname<<"\n";
+            cout<<"\nAddress : ";p_file<<"Address : ";gets(p.paddress);p_file<<p.paddress<<"\n";
+            cout<<"\nContact Number : ";p_file<<"Contact Number : ";gets(p.pcontact);p_file<<p.pcontact<<"\n";
+            cout<<"\nAge : ";p_file<<"Age : ";gets(p.page);p_file<<p.page<<"\n";
+            cout<<"\nSex : ";p_file<<"Sex : ";gets(p.psex);p_file<<p.psex<<"\n";
+            cout<<"\nQualification : ";p_file<<"Qualification : ";gets(p.pqualification);p_file<<p.pqualification<<"\n";
+            cout<<"\n********************************************************************\n";
+            p_file<<"\n********************************************************************\n\n";
+            cout<<"\nInformation Saved Successfully\n";
+            }
+            system("pause");
+            system("cls");
+         goto b;}
+        break;
+        }
+    case 5 :{{
+        cout<<"lab";
+        ofstream l_file;
+
+        char flname[20];
+        cout<<"\n\n\n\nEnter the patient's file name : ";
+        cin.ignore();
+        gets(flname);
+        l_file.open(flname);
+  if(!flname)
+{
+cout<<"\nError while opening the file\n";goto b;
+}
+else
+            {
+
+            cout<<"\n********************************************************************\n";
+            l_file<<"\n********************************************************************\n\n";//fn1353 st
+
+       lab ll;
+            cout<<"\nName : ";l_file<<"Name : ";gets(ll.lname);l_file<<ll.lname<<"\n";
+            cout<<"\nAddress : ";l_file<<"Address : ";gets(ll.laddress);l_file<<ll.laddress<<"\n";
+            cout<<"\nContact Number : ";l_file<<"Contact Number : ";gets(ll.lcontact);l_file<<ll.lcontact<<"\n";
+            cout<<"\nAge : ";l_file<<"Age : ";gets(ll.lage);l_file<<ll.lage<<"\n";
+            cout<<"\nSex : ";l_file<<"Sex : ";gets(ll.lsex);l_file<<ll.lsex<<"\n";
+            cout<<"\nQualification : ";l_file<<"Qualification : ";gets(ll.lqualification);l_file<<ll.lqualification<<"\n";
+
+
+
+
+            cout<<"\n********************************************************************\n";
+            l_file<<"\n********************************************************************\n\n";
+            cout<<"\nInformation Saved Successfully\n";
+            }
+  system("pause");
+  system("cls");
+ goto b;
+    }
+    break;
+    }
+
+
+   default:
+        cout << "Invalid response";
+        //goto b;
+        //break;
+}
+
+return 0;
+}
